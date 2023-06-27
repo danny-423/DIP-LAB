@@ -1,0 +1,38 @@
+img=imread('C:\Users\home\Desktop\im.jpg');
+graying=rgb2gray(img);
+histequalimg=imhistequal(graying);
+imshow(img);title("original img");
+figure;imshow(graying);title("gray img");
+figure;imshow(histequalimg);title("histogram image");
+
+segemention
+clc
+clear all
+show_window(3);
+I2=imread('C:\Users\home\Desktop\16.jpg');
+subplot(221);
+imshow(I2);
+title('original Grayscale image');
+x=im2double(I2);
+d=im2bw(x,0.5);
+subplot(222);
+imshow(d);
+title('Global Thresholding T-0.5');
+Id=x;
+T=0.5*(min(min(Id))+max(max(Id)));
+deltaT=0.001;
+done=0;
+while ~done
+    g = Id >= T;
+    Tnext = 0.5*(mean(Id(g)) + mean(Id(~g)));
+    done = abs(T - Tnext) < deltaT;
+    T = Tnext;
+end
+subplot(223);
+d=im2bw(x,T);
+imshow(d);
+title('Global Thresholding using own code ');
+th=imgraythresh(I2)
+g=im2bw(I2,th)
+subplot(224);imshow(g);
+title('otsu thresholding method');
