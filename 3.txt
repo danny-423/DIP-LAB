@@ -1,0 +1,14 @@
+im=imread('C:\Users\home\Desktop\3BR20AI014\cameraman.jpg');
+title("ORIGINAL IMAGE")
+subplot(221)
+imshow(im);
+se=imcreatese('rect',15,15);
+im1=imerode(im,se);
+subplot(222);
+title("ERODED FIGURE");
+imshow(im1);
+subplot(223);
+title("ORIGINAL-ERODED")
+imout=imsubtract(im,im1);
+imshow(imout);
+                                                                                                                                                                           

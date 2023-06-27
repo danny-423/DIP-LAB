@@ -1,0 +1,19 @@
+texture=imread('C:\Users\home\Desktop\1.jpg');
+
+subplot(2,2,1);
+imshow(texture);
+title('Original Image');
+
+gray_texture = rgb2gray(texture);
+
+subplot(2,2,2);
+imshow(gray_texture);
+title('Grayscale Texure');
+
+sigma= 2;
+gaussian_kernal=fspecial('gaussian',[5,5],sigma);
+gaussian_filtered= imfilter(gray_texture,gaussian_kernal,'replicate');
+
+subplot(2,2,3);
+imshow(gaussian_filtered);
+title('Gaussian Filtered')

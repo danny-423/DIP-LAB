@@ -1,0 +1,16 @@
+img=imread('C:\Users\home\Desktop\st.jpg');
+grayimg=rgb2gray(img);
+histequalimg=imhistequal(grayimg);
+imshow(img);title("original img");
+figure;imshow(grayimg);title("gray img");
+figure;imshow(histequalimg);title("histogram image");
+show_window(5);
+subplot(221);
+imshow(img);
+title("original image");
+subplot(222);
+imshow(grayimg);
+title("gray img");
+subplot(223);
+imshow(histequalimg);
+title("historgam image");

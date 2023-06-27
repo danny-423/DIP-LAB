@@ -1,0 +1,19 @@
+imm=imread('C:\Users\home\Desktop\3BR20AI014\tree.jpg');
+title("ORIGINAL IMAGE")
+imshow(imm)
+show_window(1);
+im=rgb2gray(imm);
+title("GRAY IMAGE")
+imshow(im)
+show_window(2);
+title("SOBEL EDGE IMAGE")
+E=edge(im,'sobel');
+imshow(E);
+show_window(3);
+title("CANNY EDGE IMAGE")
+E=edge(im,'canny',[0.06,0.2]);
+imshow(E);
+show_window(4);
+title("PREWITT EDGE IMAGE")
+E=edge(im,'prewitt');
+imshow(mat2gray(E));

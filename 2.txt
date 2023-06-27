@@ -1,0 +1,23 @@
+im=imread('C:\Users\home\Desktop\im.jpg');
+title("original.figure");
+imshow(im);
+[n,m]=size(im);
+x=input("Enter.Resizing.Factor");
+im1=imresize(im,[n*1,m*1]);
+show_window(2);
+title("resized image");
+imshow(im1);
+show_window(3);
+title("rotated image")
+imout=imrotate(im1,90);
+imshow(imout);
+
+2B
+im=imread('C:\Users\home\Desktop\im.jpg');
+title("original.figure");
+[n,m]=size(im);
+mat=[.707 -0.707 0;0.707 0.707 0;0 0 1];
+im1=imtransform(im,mat,'affine');
+show_window(1);
+imshow(im);
+
